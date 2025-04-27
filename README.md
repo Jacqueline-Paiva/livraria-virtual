@@ -1,37 +1,59 @@
-# 📚 Livraria Virtual - Spring Boot + JSF + PrimeFaces
+# 📚 Livraria Virtual
 
-Sistema de gestão de livros desenvolvido com Spring Boot e JSF (PrimeFaces), com banco de dados H2 e interface web simples e funcional. Projeto desenvolvido para fins didáticos e demonstração de baseline em aplicações Java Web.
-
----
-
-## 🚀 Tecnologias Utilizadas
-
+Projeto simples de Livraria Virtual desenvolvido com:
 - Java 17
 - Spring Boot 3.1.5
-- Spring Data JPA
-- JSF (Jakarta Faces)
+- Jakarta EE (CDI + JSF)
 - PrimeFaces
-- H2 Database
+- Banco de dados H2 (arquivo local)
 - Maven
-- Tomcat (via Spring Boot embutido)
 
 ---
 
-## 🧩 Funcionalidades
+## ✨ Funcionalidades
 
-- Cadastro de livros com título, autor e preço
-- Listagem de livros cadastrados
-- Edição e exclusão de livros
-- Navegação entre páginas com JSF
-- Interface reativa com PrimeFaces
-- Banco H2 persistente em arquivo
+- ✅ Cadastrar novos livros
+- ✅ Editar livros cadastrados
+- ✅ Excluir livros
+- ✅ Listar livros na Home
+- ✅ Botão de navegação para Home
+- ✅ Preço de livros com duas casas decimais (ex: 39,90)
 
-## 🛠️ Como Executar
+
+livraria/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── br/com/livraria/
+│   │   │       ├── controller/
+│   │   │       │   └── LivroController.java
+│   │   │       ├── model/
+│   │   │       │   └── Livro.java
+│   │   │       ├── repository/
+│   │   │       │   └── LivroRepository.java
+│   │   │       ├── service/
+│   │   │       │   └── LivroService.java
+│   │   │       └── LivrariaApplication.java
+│   │   ├── resources/
+│   │   │   ├── META-INF/resources/
+│   │   │   │   ├── cadastro-livro.xhtml
+│   │   │   │   └── livros.xhtml
+│   │   │   ├── application.properties
+│   │   │   └── web.xml
+│   │   └── webapp/
+│   │       └── WEB-INF/
+│   │           └── beans.xml
+├── pom.xml
+
+---
+
+## 🚀 Como rodar o projeto localmente
+
+1. **Clone o repositório:**
 
 ```bash
-# Clone o repositório
 git clone https://github.com/Jacqueline-Paiva/livraria-virtual
-cd livraria-virtual
+
 
 # Instale as dependências
 mvn clean install
@@ -46,6 +68,15 @@ Abra no navegador:
 URL: http://localhost:8081/h2-console
 
 JDBC URL: jdbc:h2:file:./data/livraria-db
+
+📋 Baseline Final
+Versão: v1.0.0
+Status: Finalizada e Funcional
+Descrição:
+Aplicação de cadastro de livros funcional com JSF, PrimeFaces e Spring Boot, permitindo cadastro, edição, exclusão e navegação entre páginas, utilizando banco de dados H2 em arquivo local.
+
+👩‍💻 Autor
+Jacqueline — Projeto desenvolvido como parte de estudos de Spring Boot + JSF.
 
 📄 Licença
 Projeto de demonstração. Uso livre para fins didáticos.
