@@ -2,17 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
       lang="pt-br" xml:lang="pt-br">
 <h:head>
     <title>Cadastro de Livro</title>
 </h:head>
 <h:body>
-    <h:form>
+    <h:form id="formCadastro">
+        <h2>Cadastrar ou Editar Livro</h2>
 
-        <h2>Cadastro de Livro</h2>
-
-        <p:panelGrid columns="1" columnClasses="label,value">
-
+        <p:panelGrid columns="2" style="margin-bottom:20px;">
             <h:outputLabel for="titulo" value="Título:" />
             <p:inputText id="titulo" value="#{livroController.livro.titulo}" required="true" />
 
@@ -20,41 +19,55 @@
             <p:inputText id="autor" value="#{livroController.livro.autor}" required="true" />
 
             <h:outputLabel for="preco" value="Preço:" />
-            <p:inputText id="preco" value="#{livroController.livro.preco}" required="true" />
-
+            <p:inputText id="preco" value="#{livroController.livro.preco}" required="true">
+                <f:convertNumber pattern="#,##0.00" locale="pt_BR" />
+            </p:inputText>
         </p:panelGrid>
-
-        <br/>
 
         <p:commandButton value="#{livroController.livro.id == null ? 'Salvar' : 'Atualizar'}"
                          action="#{livroController.salvar}"
                          update="@form"
                          styleClass="ui-button-success" />
 
-        <p:commandButton value="Voltar para Home"
-                         action="livros.xhtml?faces-redirect=true"
-                         styleClass="ui-button-secondary"
-                         icon="pi pi-arrow-left"
-                         style="margin-left: 10px;" />
-        <p:column headerText="Ações">
+        <h:link outcome="livros.xhtml" styleClass="ui-button ui-button-secondary" style="margin-left: 10px;">
+            <span class="pi pi-home" style="margin-right: 20px;"></span> Voltar para Home
+        </h:link>
+
+        <h2 style="margin-top:40px;">Livros Cadastrados</h2>
+
+        <p:dataTable value="#{livroController.livros}" var="livro"
+                     emptyMessage="Nenhum livro cadastrado."
+                     style="width: 90%">
+
+            <p:column headerText="Título">
+                <h:outputText value="#{livro.titulo}" />
+            </p:column>
+
+            <p:column headerText="Autor">
+                <h:outputText value="#{livro.autor}" />
+            </p:column>
+
+            <p:column headerText="Preço">
+                <h:outputText value="R$ #{livro.preco}" />
+            </p:column>
+
+            <p:column headerText="Ações">
                 <p:commandButton icon="pi pi-pencil"
-                                 action="cadastro-livro.xhtml?faces-redirect=true"
-                                 update="@form"
-                                 styleClass="ui-button-info"
+                                 action="#{livroController.editar(livro)}"
                                  process="@this"
-                                 immediate="true">
-                    <f:setPropertyActionListener value="#{livro}" target="#{livroController.livro}" />
-                </p:commandButton>
+                                 update="@form"
+                                 styleClass="ui-button-warning"
+                                 title="Editar" />
 
                 <p:commandButton icon="pi pi-trash"
                                  action="#{livroController.excluir(livro.id)}"
                                  update="@form"
                                  styleClass="ui-button-danger"
+                                 title="Excluir"
                                  onclick="return confirm('Deseja realmente excluir este livro?');" />
             </p:column>
 
-
+        </p:dataTable>
     </h:form>
 </h:body>
 </html>
-

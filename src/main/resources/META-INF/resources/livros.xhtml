@@ -11,14 +11,14 @@
         <h1>Bem-vindo à Livraria Virtual 📚</h1>
 
         <p:commandButton value="Cadastrar Novo Livro"
-                         action="livro.xhtml?faces-redirect=true"
+                         action="cadastro-livro.xhtml?faces-redirect=true"
                          icon="pi pi-plus"
                          styleClass="ui-button-success"
                          style="margin-bottom:20px;" />
 
         <p:dataTable value="#{livroController.livros}" var="livro"
                      emptyMessage="Nenhum livro cadastrado ainda."
-                     style="width: 90%" rows="10">
+                     style="width: 90%">
 
             <p:column headerText="Título">
                 <h:outputText value="#{livro.titulo}" />
@@ -36,4 +36,3 @@
     </h:form>
 </h:body>
 </html>
-

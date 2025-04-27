@@ -1,5 +1,7 @@
 package br.com.livraria.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -50,5 +52,6 @@ public class Livro {
 
     public void setPreco(Double preco) {
         this.preco = preco;
+        
     }
 }

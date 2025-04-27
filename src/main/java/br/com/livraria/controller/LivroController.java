@@ -31,13 +31,17 @@ public class LivroController implements Serializable {
         livros = livroService.listar();
     }
 
+    public void editar(Livro livroSelecionado) {
+        this.livro = livroSelecionado;
+    }
+
     public void excluir(Long id) {
         if (id != null) {
             livroService.excluir(id);
             livros = livroService.listar();
         }
     }
-    
+
     // Getters e Setters
     public Livro getLivro() {
         return livro;

@@ -4,6 +4,7 @@ import br.com.livraria.model.Livro;
 import br.com.livraria.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class LivroService {
         livroRepository.save(livro);
     }
 
+    @Transactional
     public void excluir(Long id) {
         livroRepository.deleteById(id);
     }
