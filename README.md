@@ -20,6 +20,7 @@ Projeto simples de Livraria Virtual desenvolvido com:
 - ✅ Preço de livros com duas casas decimais (ex: 39,90)
 
 
+```text
 livraria/
 ├── src/
 │   ├── main/
@@ -34,18 +35,18 @@ livraria/
 │   │   │       ├── service/
 │   │   │       │   └── LivroService.java
 │   │   │       └── LivrariaApplication.java
-│   │   ├── resources/
-│   │   │   ├── META-INF/resources/
-│   │   │   │   ├── cadastro-livro.xhtml
-│   │   │   │   └── livros.xhtml
-│   │   │   ├── application.properties
-│   │   │   └── web.xml
-│   │   └── webapp/
-│   │       └── WEB-INF/
-│   │           └── beans.xml
+│   │   └── resources/
+│   │       ├── META-INF/resources/
+│   │       ├── cadastro-livro.xhtml
+│   │       ├── livros.xhtml
+│   │       ├── application.properties
+│   │       ├── web.xml
+│   │       └── webapp/
+│   │           └── WEB-INF/
+│   │               └── beans.xml
 ├── pom.xml
+```
 
----
 
 ## 🚀 Como rodar o projeto localmente
 
